@@ -39,10 +39,15 @@ body, html  {
   height: 100%;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer; 
+}
+
+.welcome__container {
+  height: 100%;
+  width: 100%;
 }
 
 .main__page--wrapper {
@@ -136,11 +141,50 @@ margin-right: 100px;
 
 }
 
-.contacts__timetable {
+.contacts__dropdown-title {
   font-size: 13px;
   text-decoration: underline;
   color: #dfb56d;
 
+}
+.contacts{
+  position: relative;
+}
+
+.contacts:hover .dropdown__menu{
+  display: block;
+}
+
+.dropdown__menu:before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 94px;
+  right: 0px;
+  top: -8px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 10px solid #EDEDED;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: 100%;
+  background: #EDEDED;
+  opacity: 0.8;
+  border-radius: 4px;
+  padding: 9%;
+  text-align: left;
+  display: none;
+  margin: 5px 0px 0px 35px;
+  color: #1E1F20;
+
+}
+
+.dropdown__day {
+  font-weight: bold;
 }
 
 .hero__text-section {
@@ -187,6 +231,15 @@ margin-right: 100px;
 .btn--color--black {
   background: #202123;
 }
+
+.btn--color--grey {
+  background: #8E8E8E;
+}
+
+.btn--color--grey:hover {
+  background: #202123;
+}
+
 
 .btn--color--black:hover {
   background: #dfb56d;
@@ -452,6 +505,10 @@ object-fit: cover;
   margin-bottom: 0;
 }
 
+.footer-conteiner__section {
+  height: 141px;;
+}
+
 .footer-conteiner__content {
   border-top: 1px solid #353538;
 }
@@ -461,7 +518,6 @@ object-fit: cover;
 }
 
 .footer {
-  height: 141px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -565,8 +621,13 @@ object-fit: cover;
 .page-content {
   background: #fff;
   color: #303030;
-  padding: 40px 0;
-  margin-bottom: 174px;
+  padding:  105px 0px 79px 0px;
+}
+
+.page-content_services {
+  background: #fff;
+  color: #303030;
+  padding:  43px 0px 136px 0px;
 }
 
 .service {
@@ -626,14 +687,22 @@ object-fit: cover;
 .inner-section__title {
   font-size: 48px;
   font-weight: bold;
-  margin-bottom: 75px;
+  margin-bottom: 60px;
+  padding-top: 75px;
 }
+
+.inner__footer {
+  margin-top: auto;
+  padding: 45px 0px;
+}
+
 
 .partners {
   display: flex;
   flex-wrap: wrap;
   margin-left: -67px;
-  margin-bottom: 107px;
+  padding-bottom: 58px;
+
 }
 
 .partners__link {
@@ -646,7 +715,249 @@ object-fit: cover;
   filter: grayscale(100%);
 }
 
+.partners__item {
+  margin-bottom: 30px;
+}
+
 .partners__link:hover {
   filter: grayscale(0);
 
+}
+
+/* welcome page */
+
+
+.welcome__conteiner {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: url(./img/splash.png) center bottom / cover  no-repeat;
+
+} 
+
+.welcome__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale3d(0.1, 0.1, 0) translateY(0);
+  }
+
+  30%{
+    transform: scale3d(0.3, 0.3, 0.3) translateY(-100%)
+  }
+
+  50%{
+    transform: scale3d(0.6, 0.6, 0.7) translateY(-60%);
+  }
+
+  70% {
+    transform: scale3d(1, 1, 1) translateY(0);
+  }
+  75%{
+    transform: translateY(0%)
+  }
+  80%{
+    transform: translateY(-15%)
+  }
+  85%{
+    transform: translateY(0%)
+  }
+  90%{
+    transform: translateY(-4%)
+  }
+}
+
+.welcome__logo {
+  margin-bottom: 65px;
+}
+
+/* reviews page */
+
+.reviews__item {
+  margin-bottom: 27px; 
+}
+
+.review {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 50px 30px;
+  background: #F4F5F5;
+}
+
+.reviews {
+  column-count: 2;
+  column-gap: 30px;
+  margin-bottom: 70px;
+}
+
+.review__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; 
+}
+
+.review__user {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #4d76a1;
+  margin-bottom: 10px;
+}
+
+.review__user:after {
+  content: url(./img/vk-blue\ 1.png);
+  height: 29px;
+}
+
+.review__tags {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tag {
+  font-size: 13px;
+  color: #333;
+  padding: 12px 15px;
+  border-radius: 50px;
+  background: #e6e6e6;
+}
+
+.tag--bg--green {
+  background: #B9EAE4;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 23px;
+}
+
+.review__title {
+  font-size: 30px;
+  color: #202020;
+  font-weight: bold;
+  margin-bottom: 23px;
+}
+
+.review__content-text {
+  margin-bottom: 50px;
+}
+
+.review__date {
+  font-size: 14px;
+  color: #1A1B1E;
+  font-weight: bold;
+}
+
+.separator {
+  background: #E5C288 url(./img/phone-n-hand\ 1.png)right 20% bottom no-repeat;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #202123;
+}
+
+.separator__title {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.separator__content {
+  max-width: 46%;
+}
+
+.form__controls {
+  display: flex;
+}
+
+.form__controls-title {
+  width: 38%;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.controls {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.form__row {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.form__input {
+  flex: 1;
+  margin-right: 30px;
+  border-radius: 4px;
+  border: none;
+  background: #fff;
+  padding: 22px 30px;
+  font-size: 18px;
+  color: #1A1B1E;
+}
+
+.form__input--textarea {                 /* textarea */ 
+ height: 235px;
+}
+
+.form__input::placeholder {
+  color: #666;
+}
+
+.form__input:last-child {
+  margin-right: 0px;
+}
+
+.form__input--textarea {
+  height: 232px;
+}
+
+.controls__elem {
+  cursor: pointer;
+}
+
+.controls__checkbox:checked ~ .controls__tag {
+  background: #B9EAE4;
+}
+
+.controls__checkbox {
+  display: none;
+}
+
+.controls__item {
+  margin-right: 10px;
+}
+
+.form__btns {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 17px;
+  padding-bottom: 100px;
+}
+
+.form__btn {
+  margin-right: 20px;
+}
+
+
+.form__btn:last-child {
+  margin-right: 0;
 }
